@@ -12,7 +12,7 @@ useState<Map<number, City>>("cityList", (): Map<number, City> => {
 
 <template>
   <header>
-    <h1>コンポーザブルサンプル</h1>
+    <h1>各地のお天気（都市限定版）</h1>
   </header>
   <main>
     <NuxtPage />
