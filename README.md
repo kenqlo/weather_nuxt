@@ -20,7 +20,7 @@
 
 4. 環境変数を設定します。
 
-    https://openweathermap.org/でAPIキーを取得して、.envにNUXT_PUBLIC_WEATHERMAP_APPIDとして設定
+    https://openweathermap.org/ でAPIキーを取得して、.envにNUXT_PUBLIC_WEATHERMAP_APPIDとして設定
 
 5. アプリケーションを実行します。
 
