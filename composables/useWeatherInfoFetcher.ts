@@ -1,11 +1,10 @@
-import type {City} from "@/interfaces";
+import type {City, WeatherData} from "@/interfaces";
 
 export const useWeatherInfoFetcher = (city: City) => {
 	const config = useRuntimeConfig();
 	const asyncData = useLazyAsyncData(
 		`useWeatherInfoFetcher-${city.id}`,
 		(): Promise<any> => {
-			// const weatherInfoUrl = "https://api.openweathermap.org/data/2.5/weather";
 			const params:{
 				lang: string;
 				q: string;
@@ -22,24 +21,24 @@ export const useWeatherInfoFetcher = (city: City) => {
 				appid: config.public.weathermapAppid
 			}
 			const queryParams = new URLSearchParams(params);
-			// const urlFull = `${weatherInfoUrl}?${queryParams}`;
 			const urlFull = `${config.public.weatherInfoUrl}?${queryParams}`;
 			console.log('Fetching to openweathermap.org...');
 			const response = $fetch(urlFull);
-			// console.log(response);
+
 			return response;
 		},
 		{
-			transform: (data): any => {
+			transform: (data): WeatherData => {
 				const weatherArray = data.weather;
 				const weather = weatherArray[0];
-				// return weather.description;
-				return {
-					description: weather.description,
-					icon: `${config.public.weatherIconUrl}${weather.icon}.png`,
-					tempMax: data.main.temp_max,
-					tempMin: data.main.temp_min
+				const weatherData: WeatherData = {
+					description: weather.description as string,
+					icon: `${config.public.weatherIconUrl}${weather.icon as string}.png`,
+					tempMax: data.main.temp_max as number,
+					tempMin: data.main.temp_min as number
 				}
+
+				return weatherData;
 			}
 		}
 	);
