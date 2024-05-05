@@ -10,8 +10,8 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/node": "^18",
-    "nuxt": "^3.6.1",
-    "sass": "^1.71.1"
+    "@types/node": "^20",
+    "nuxt": "^3.11.2",
+    "sass": "^1.76.0"
   }
 }

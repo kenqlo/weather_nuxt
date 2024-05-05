@@ -4,8 +4,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       weatherInfoUrl: "https://api.openweathermap.org/data/2.5/weather",
-	  weathermapAppid: '',
-	  weatherIconUrl: "https://openweathermap.org/img/wn/"
+      weathermapAppid: process.env.NUXT_PUBLIC_WEATHERMAP_APPID,
+      weatherIconUrl: "https://openweathermap.org/img/wn/"
     },
   },
 });
